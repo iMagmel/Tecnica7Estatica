@@ -1,0 +1,1 @@
+# Tecnica7Estatica
