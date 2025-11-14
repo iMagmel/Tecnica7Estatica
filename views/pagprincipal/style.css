@@ -1,0 +1,809 @@
+/* ======== RESETEO ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f9fafc;
+    color: #222;
+}
+
+/* ======== HEADER ======== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0a1a2f; /* azul oscuro / militar */
+    color: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+/* Estilo cuando se hace scroll */
+header.scrolled {
+    background-color: #0f2744; /* azul más intenso */
+    padding: 8px 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ======== LOGO Y TÍTULO ======== */
+.titulo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.titulo img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+header.scrolled .titulo img {
+    transform: scale(0.9);
+}
+
+.titulo h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ======== NAV ======== */
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    border: 2px solid #1e90ff; /* azul más brillante */
+    background-color: #1e90ff20; /* leve fondo translúcido */
+    color: #1e90ff;
+}
+
+
+/* ======== SECCIÓN NOSOTROS ======== */
+.nosotros {
+    background-color: #0a1a2f; /* azul militar oscuro */
+    padding: 100px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contenedor-nosotros {
+    max-width: 1100px;
+}
+
+/* Título principal */
+.contenedor-nosotros h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+/* Frase institucional */
+.frase {
+    font-size: 1.2rem;
+    color: #b0c7e6;
+    margin-bottom: 60px;
+    font-style: italic;
+}
+
+/* ======== CONTENEDOR DE TARJETAS ======== */
+.contenedor-textos {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* ======== TARJETAS ======== */
+.tarjeta {
+    flex: 1;
+    min-width: 300px;
+    background-color: #0f2744; /* azul un poco más claro */
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    text-align: left;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    background-color: #12365d;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.tarjeta h3 {
+    font-size: 1.6rem;
+    color: #1e90ff; /* azul brillante */
+    margin-bottom: 20px;
+}
+
+.tarjeta p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 900px) {
+    .contenedor-textos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarjeta {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .frase {
+        font-size: 1.1rem;
+    }
+}
+/* ======== ANIMACIONES DE APARICIÓN ======== */
+.animado {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.animado.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Puedes agregar variantes para más dinamismo */
+.tarjeta.vision.visible {
+    transition-delay: 0.2s;
+}
+
+.tarjeta.mision.visible {
+    transition-delay: 0.4s;
+}
+
+/* ======== SECCIÓN HISTORIA ======== */
+.historia {
+    background-color: #ffffff;
+    color: #0a1a2f;
+    padding: 100px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-historia {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Texto */
+.texto-historia {
+    flex: 1;
+    min-width: 300px;
+}
+
+.texto-historia h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0a1a2f;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.texto-historia h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 80px;
+    height: 4px;
+    background-color: #1e90ff;
+    border-radius: 2px;
+}
+
+.texto-historia p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Imagen */
+.imagen-historia {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.imagen-historia img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.imagen-historia img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ======== RESPONSIVE HISTORIA ======== */
+@media (max-width: 900px) {
+    .contenedor-historia {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .texto-historia h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .imagen-historia img {
+        max-width: 90%;
+    }
+}
+/* ======== ANIMACIÓN DESDE LA IZQUIERDA ======== */
+.animado-izq {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 1s ease, transform 1s ease;
+    will-change: opacity, transform;
+}
+
+/* Cuando aparece */
+.animado-izq.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fallback por si algo falla en el JS: mostrar igual */
+.no-js .animado-izq {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+
+/* ======== SECCIÓN MANUEL SADOSKY ======== */
+.sadosky {
+    background-color: #0a1a2f; /* azul militar oscuro */
+    color: #fff;
+    padding: 100px 60px;
+    text-align: center;
+}
+
+.titulo-sadosky {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    color: #1e90ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Contenedor general */
+.contenedor-sadosky {
+    max-width: 1300px; /* más ancho general */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Imagen redonda */
+.imagen-sadosky {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.imagen-sadosky img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #1e90ff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.imagen-sadosky img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Texto más ancho */
+.texto-sadosky {
+    flex: 2; /* más espacio para el texto */
+    min-width: 450px;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.texto-sadosky p {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    color: #e5e5e5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contenedor-sadosky {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imagen-sadosky img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .titulo-sadosky {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .texto-sadosky {
+        text-align: center;
+        min-width: auto;
+    }
+}
+/* ======== ANIMACIÓN DESDE LA IZQUIERDA ======== */
+.animado-izq {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 1s ease, transform 1s ease;
+    will-change: opacity, transform;
+}
+
+.animado-izq.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Pequeño retardo para una entrada más natural */
+.titulo-sadosky.animado-izq.visible {
+    transition-delay: 0.1s;
+}
+
+.contenedor-sadosky.animado-izq.visible {
+    transition-delay: 0.3s;
+}
+
+/* ======== SECCIÓN LOGROS Y CIFRAS MODERNA ======== */
+.logros {
+    position: relative;
+    background: linear-gradient(180deg, #0b1d3f, #162b55); /* azul marino degradado */
+    padding: 120px 60px;
+    overflow: hidden;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logros .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    backdrop-filter: blur(3px);
+}
+
+.contenedor-logros {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tarjeta-logro {
+    background: #1f3265; /* color tarjeta azul más claro que el fondo */
+    padding: 40px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.tarjeta-logro:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: #2c4480; /* azul más brillante al hover */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.icono {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.tarjeta-logro:hover .icono {
+    transform: rotate(-15deg) scale(1.3);
+    filter: drop-shadow(0 0 10px #ffb347);
+}
+
+.tarjeta-logro h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #d0d8ff;
+}
+
+.tarjeta-logro h3 span {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    display: block;
+    margin-top: 5px;
+}
+
+.tarjeta-logro p {
+    font-size: 1rem;
+    color: #cbd6ff;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .logros {
+        padding: 80px 30px;
+    }
+    .tarjeta-logro {
+        padding: 30px 15px;
+    }
+    .tarjeta-logro h3 span {
+        font-size: 2rem;
+    }
+}
+
+/* ======== ANIMACIÓN DESDE ABAJO ======== */
+.animado-abajo {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    will-change: opacity, transform;
+}
+
+/* Cuando aparece */
+.animado-abajo.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retraso secuencial para un efecto más natural */
+.animado-abajo:nth-child(1) { transition-delay: 0.1s; }
+.animado-abajo:nth-child(2) { transition-delay: 0.2s; }
+.animado-abajo:nth-child(3) { transition-delay: 0.3s; }
+.animado-abajo:nth-child(4) { transition-delay: 0.4s; }
+.animado-abajo:nth-child(5) { transition-delay: 0.5s; }
+.animado-abajo:nth-child(6) { transition-delay: 0.6s; }
+
+.faq-seccion {
+  margin: 60px 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.faq-seccion h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.faq-seccion h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #1e90ff;
+  border-radius: 3px;
+}
+
+.faq-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faq-columna {
+  flex: 1;
+  min-width: 280px;
+}
+
+.faq-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background: #f9f9f9; 
+}
+
+.faq-pregunta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  color: #333;
+  min-height: 60px;
+}
+
+.faq-pregunta i {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.faq-respuesta {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.faq-item.activo .faq-respuesta {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-item.activo .faq-pregunta i {
+  transform: rotate(45deg);
+  color: #0b1d3f;
+}
+
+@media (max-width: 900px) {
+  .faq-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .faq-columna {
+    min-width: 100%;
+  }
+}
+/* Animación inicial para cada FAQ item */
+.faq-item.animado {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+/* Cuando es visible */
+.faq-item.animado.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Retrasos secuenciales para columnas */
+.faq-columna:nth-child(1) .faq-item.animado:nth-child(1) { transition-delay: 0.1s; }
+.faq-columna:nth-child(1) .faq-item.animado:nth-child(2) { transition-delay: 0.2s; }
+
+.faq-columna:nth-child(2) .faq-item.animado:nth-child(1) { transition-delay: 0.3s; }
+.faq-columna:nth-child(2) .faq-item.animado:nth-child(2) { transition-delay: 0.4s; }
+
+.faq-columna:nth-child(3) .faq-item.animado:nth-child(1) { transition-delay: 0.5s; }
+.faq-columna:nth-child(3) .faq-item.animado:nth-child(2) { transition-delay: 0.6s; }
+
+
+
+/* ======== FOOTER ======== */
+footer {
+    background: linear-gradient(135deg, #0a1a2f 0%, #132b4a 100%);
+    color: #f0f0f0;
+    padding: 60px 0 20px;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes aparecerFooter {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.footer-contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.footer-columna h3,
+.footer-columna h4 {
+    color: #ffffff;
+    margin-bottom: 18px;
+    font-weight: 600;
+    position: relative;
+    font-size: 1.4rem; /* Más grande */
+}
+
+.footer-columna h3::after,
+.footer-columna h4::after {
+    content: '';
+    display: block;
+    width: 45px;
+    height: 3px;
+    background-color: #00bcd4;
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+.footer-columna p {
+    line-height: 1.8;
+    font-size: 15px; /* Más grande */
+    color: #dcdcdc;
+}
+
+.footer-columna ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-columna ul li {
+    margin-bottom: 12px;
+    font-size: 15px; /* Más grande */
+}
+
+.footer-columna ul li a {
+    color: #dcdcdc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-columna ul li a:hover {
+    color: #00bcd4;
+}
+
+.info-contacto i {
+    margin-right: 8px;
+    color: #00bcd4;
+}
+
+.iconos-redes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.iconos-redes a {
+    background: rgba(255,255,255,0.05);
+    color: #dcdcdc;
+    font-size: 22px; /* Más grandes */
+    padding: 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.iconos-redes a:hover {
+    background: #00bcd4;
+    color: #fff;
+    transform: translateY(-3px) scale(1.1);
+}
+
+.footer-copy {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 40px;
+    padding-top: 12px;
+    font-size: 14px;
+    color: #a9a9a9;
+}
+
+.footer-extra {
+    font-size: 13px;
+    color: #7abed1;
+    margin-top: 5px;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+    .footer-contenedor {
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+    }
+
+    .footer-columna.redes {
+        grid-column: 1 / -1;
+        margin-top: 20px;
+    }
+
+    .iconos-redes {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-columna {
+        text-align: center;
+    }
+}
+/* ======== ANIMACIÓN FOOTER ======== */
+footer.animado {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+footer.animado.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ======== FIX FOOTER AL FONDO ======== */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    margin-top: auto;
+}
+

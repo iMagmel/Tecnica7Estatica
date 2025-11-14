@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preinscripciones - Escuela Técnica 7 de Banfield</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body class="no-js">
+    <header id="header">
+        <div class="titulo">
+            <img src="logo.png" alt="Logo del colegio">
+            <h1>Tecnica N.º 7</h1>
+        </div>
+        <nav>
+            <li><a href="/views/pagprincipal/index.html">Nosotros</a></li>
+            <li><a href="/views/propuestas/index.html">Nuestra Propuesta</a></li>
+            <li><a href="#">PreInscripciones</a></li>
+            <li><a href="/views/contacto/index.html">Contacto</a></li>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-title">
+                <h2>Preinscripción Escolar</h2>
+                <p>Complete el siguiente formulario para preinscribir a su hijo en nuestra institución. Todos los campos marcados con * son obligatorios.</p>
+            </div>
+
+            <form id="preinscripcion-form">
+                <div class="form-container">
+                    <!-- Información del Estudiante -->
+                    <div class="form-section">
+                        <h3 class="section-title">Información del Estudiante</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre" class="required">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido" class="required">Apellido</label>
+                                <input type="text" id="apellido" name="apellido" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dni" class="required">DNI</label>
+                                <input type="text" id="dni" name="dni" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha-nacimiento" class="required">Fecha de Nacimiento</label>
+                                <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nacionalidad" class="required">Nacionalidad</label>
+                                <input type="text" id="nacionalidad" name="nacionalidad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lugar-nacimiento" class="required">Lugar de Nacimiento</label>
+                                <input type="text" id="lugar-nacimiento" name="lugar-nacimiento" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="curso" class="required">Curso al que se inscribe</label>
+                                <select id="curso" name="curso" required>
+                                    <option value="">Seleccione un curso</option>
+                                    <option value="1ro">1er Año</option>
+                                    <option value="2do">2do Año</option>
+                                    <option value="3ro">3er Año</option>
+                                    <option value="4to">4to Año</option>
+                                    <option value="5to">5to Año</option>
+                                    <option value="6to">6to Año</option>
+                                    <option value="7mo">7mo Año</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="especialidad">Especialidad (a partir de 4to año)</label>
+                                <select id="especialidad" name="especialidad">
+                                    <option value="">Seleccione especialidad</option>
+                                    <option value="informatica">Programacion</option>
+                                    <option value="electronica">Multimedios</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información del Tutor -->
+                    <div class="form-section">
+                        <h3 class="section-title">Información del Tutor</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tutor-nombre" class="required">Nombre del Tutor</label>
+                                <input type="text" id="tutor-nombre" name="tutor-nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tutor-apellido" class="required">Apellido del Tutor</label>
+                                <input type="text" id="tutor-apellido" name="tutor-apellido" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tutor-dni" class="required">DNI del Tutor</label>
+                                <input type="text" id="tutor-dni" name="tutor-dni" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="parentesco" class="required">Parentesco con el estudiante</label>
+                                <select id="parentesco" name="parentesco" required>
+                                    <option value="">Seleccione parentesco</option>
+                                    <option value="padre">Padre</option>
+                                    <option value="madre">Madre</option>
+                                    <option value="tutor">Tutor Legal</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tutor-telefono" class="required">Teléfono de contacto</label>
+                                <input type="tel" id="tutor-telefono" name="tutor-telefono" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tutor-email" class="required">Correo electrónico</label>
+                                <input type="email" id="tutor-email" name="tutor-email" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de Contacto -->
+                    <div class="form-section">
+                        <h3 class="section-title">Información de Contacto</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="domicilio" class="required">Domicilio</label>
+                                <input type="text" id="domicilio" name="domicilio" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="localidad" class="required">Localidad</label>
+                                <input type="text" id="localidad" name="localidad" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="codigo-postal" class="required">Código Postal</label>
+                                <input type="text" id="codigo-postal" name="codigo-postal" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono-alternativo">Teléfono alternativo</label>
+                                <input type="tel" id="telefono-alternativo" name="telefono-alternativo">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información Académica -->
+                    <div class="form-section">
+                        <h3 class="section-title">Información Académica</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="escuela-anterior" class="required">Escuela de procedencia</label>
+                                <input type="text" id="escuela-anterior" name="escuela-anterior" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ultimo-curso" class="required">Último curso aprobado</label>
+                                <select id="ultimo-curso" name="ultimo-curso" required>
+                                    <option value="">Seleccione curso</option>
+                                    <option value="primaria">Primaria completa</option>
+                                    <option value="1ro-secundaria">1er año secundaria</option>
+                                    <option value="2do-secundaria">2do año secundaria</option>
+                                    <option value="3ro-secundaria">3er año secundaria</option>
+                                    <option value="4to-secundaria">4to año secundaria</option>
+                                    <option value="5to-secundaria">5to año secundaria</option>
+                                    <option value="6to-secundaria">6to año secundaria</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="promedio">Promedio general</label>
+                                <input type="number" id="promedio" name="promedio" min="1" max="10" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="materias-pendientes">Materias pendientes (si aplica)</label>
+                                <input type="text" id="materias-pendientes" name="materias-pendientes">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información Adicional -->
+                    <div class="form-section">
+                        <h3 class="section-title">Información Adicional</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="observaciones">Observaciones o información adicional</label>
+                                <textarea id="observaciones" name="observaciones" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="necesidades-especiales" name="necesidades-especiales">
+                                <label for="necesidades-especiales">El estudiante tiene necesidades educativas especiales</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="hermanos-institucion" name="hermanos-institucion">
+                                <label for="hermanos-institucion">Tiene hermanos en la institución</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documentación -->
+                    <div class="form-section">
+                        <h3 class="section-title">Documentación a Presentar</h3>
+                        <div class="form-row">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="doc-dni" name="doc-dni" required>
+                                <label for="doc-dni" class="required">Fotocopia de DNI del estudiante</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="doc-partida" name="doc-partida" required>
+                                <label for="doc-partida" class="required">Fotocopia de partida de nacimiento</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="doc-certificado" name="doc-certificado" required>
+                                <label for="doc-certificado" class="required">Certificado de estudios del último año</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="doc-fotos" name="doc-fotos" required>
+                                <label for="doc-fotos" class="required">4 fotos carnet 4x4</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="doc-tutor" name="doc-tutor" required>
+                                <label for="doc-tutor" class="required">Fotocopia de DNI del tutor</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Términos y Condiciones -->
+                    <div class="form-section">
+                        <div class="form-row">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="terminos" name="terminos" required>
+                                <label for="terminos" class="required">Acepto los términos y condiciones del proceso de preinscripción</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón de Envío -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-block" id="submit-btn">Enviar Preinscripción</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Mensaje de confirmación -->
+            <div id="success-message" class="success-message" style="display: none;">
+                <h3>¡Preinscripción Enviada Exitosamente!</h3>
+                <p>Hemos recibido su solicitud de preinscripción. Nos pondremos en contacto a la brevedad para continuar con el proceso.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="animado">
+        <div class="footer-contenedor">
+            <div class="footer-columna">
+                <h3>Escuela Técnica N°7 de Banfield</h3>
+                <p>Formando profesionales técnicos con valores, compromiso y excelencia educativa desde Banfield.</p>
+            </div>
+            <div class="footer-columna">
+                <h4>Enlaces útiles</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Carreras</a></li>
+                    <li><a href="#">Inscripción</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-columna">
+                <h4>Contacto</h4>
+                <ul class="info-contacto">
+                    <li><i class='bx bx-map'></i> Banfield, Buenos Aires, Argentina</li>
+                    <li><i class='bx bx-phone'></i> +54 11 4238-5678</li>
+                    <li><i class='bx bx-envelope'></i> tecnica7banfield@escuelas.edu.ar</li>
+                </ul>
+            </div>
+            <div class="footer-columna redes">
+                <h4>Seguinos</h4>
+                <div class="iconos-redes">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-youtube'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>© 2025 Escuela Técnica N°7 de Banfield — Todos los derechos reservados.</p>
+            <p class="footer-extra">Diseñado por estudiantes de la E.T. N°7 de Banfield</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDNpNWRIJ4_JTXq2PWBmCV_dS65Bc-1JNE",
+            authDomain: "tecnica7-preinscripciones.firebaseapp.com",
+            projectId: "tecnica7-preinscripciones",
+            storageBucket: "tecnica7-preinscripciones.firebasestorage.app",
+            messagingSenderId: "430614417221",
+            appId: "1:430614417221:web:02ae7a5e33867ad91e782c"
+        };
+
+        // Inicializar Firebase
+        try {
+            firebase.initializeApp(firebaseConfig);
+            console.log("Firebase inicializado correctamente");
+        } catch (error) {
+            console.error("Error inicializando Firebase:", error);
+        }
+
+        const db = firebase.firestore();
+
+        // Evento submit del formulario CON NODE.JS INTEGRADO
+        document.getElementById('preinscripcion-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Enviando...';
+            submitBtn.disabled = true;
+
+            // Recoger datos del formulario
+            const formData = {
+                estudiante: {
+                    nombre: document.getElementById('nombre').value,
+                    apellido: document.getElementById('apellido').value,
+                    dni: document.getElementById('dni').value,
+                    fechaNacimiento: document.getElementById('fecha-nacimiento').value,
+                    nacionalidad: document.getElementById('nacionalidad').value,
+                    lugarNacimiento: document.getElementById('lugar-nacimiento').value,
+                    curso: document.getElementById('curso').value,
+                    especialidad: document.getElementById('especialidad').value
+                },
+                tutor: {
+                    nombre: document.getElementById('tutor-nombre').value,
+                    apellido: document.getElementById('tutor-apellido').value,
+                    dni: document.getElementById('tutor-dni').value,
+                    parentesco: document.getElementById('parentesco').value,
+                    telefono: document.getElementById('tutor-telefono').value,
+                    email: document.getElementById('tutor-email').value
+                },
+                contacto: {
+                    domicilio: document.getElementById('domicilio').value,
+                    localidad: document.getElementById('localidad').value,
+                    codigoPostal: document.getElementById('codigo-postal').value,
+                    telefonoAlternativo: document.getElementById('telefono-alternativo').value
+                },
+                academico: {
+                    escuelaAnterior: document.getElementById('escuela-anterior').value,
+                    ultimoCurso: document.getElementById('ultimo-curso').value,
+                    promedio: document.getElementById('promedio').value,
+                    materiasPendientes: document.getElementById('materias-pendientes').value
+                },
+                adicional: {
+                    observaciones: document.getElementById('observaciones').value,
+                    necesidadesEspeciales: document.getElementById('necesidades-especiales').checked,
+                    hermanosInstitucion: document.getElementById('hermanos-institucion').checked
+                },
+                fechaRegistro: new Date(),
+                estado: 'pendiente'
+            };
+
+            try {
+                console.log("Formulario enviado");
+                console.log("Enviando datos:", formData);
+
+                // 1️⃣ GUARDAR EN FIREBASE
+                const docRef = await db.collection('preinscripciones').add(formData);
+                console.log("Guardado en Firebase con ID:", docRef.id);
+
+                // 2️⃣ ENVIAR EMAILS CON NODE.JS
+                console.log("📤 Enviando emails al servidor Node.js...");
+                const response = await fetch('http://localhost:3000/enviar-preinscripcion', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                console.log("📨 Respuesta del servidor:", result);
+                
+                if (result.success) {
+                    console.log("✅ Emails enviados correctamente");
+                    document.getElementById('success-message').style.display = 'block';
+                    this.reset();
+                    document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    throw new Error(result.message);
+                }
+
+            } catch (error) {
+                console.error("❌ Error completo:", error);
+                alert('Error al enviar la preinscripción: ' + error.message);
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Mostrar/ocultar especialidad según el curso seleccionado
+        document.getElementById('curso').addEventListener('change', function() {
+            const especialidadField = document.getElementById('especialidad');
+            if (this.value === '4to' || this.value === '5to' || this.value === '6to' || this.value === '7mo') {
+                especialidadField.required = true;
+                especialidadField.parentElement.style.display = 'block';
+            } else {
+                especialidadField.required = false;
+                especialidadField.parentElement.style.display = 'none';
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.remove("no-js");
+            console.log("🚀 Página cargada");
+        });
+
+        // Efecto al hacer scroll: cambia el estilo del header
+        window.addEventListener("scroll", () => {
+            const header = document.getElementById("header");
+            if (window.scrollY > 60) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+        
+document.addEventListener("DOMContentLoaded", () => {
+    // Añadimos una clase fallback si JS está activo
+    document.body.classList.remove("no-js");
+
+    const elementos = document.querySelectorAll(".animado, .animado-izq, .animado-abajo, .faq-item.animado, footer.animado");
+
+    // Verificamos que existan elementos
+    if (elementos.length > 0) {
+        const observador = new IntersectionObserver((entradas, obs) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add("visible");
+                    obs.unobserve(entrada.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        elementos.forEach(el => observador.observe(el));
+    }
+});
+
+
+    </script>
+</body>
+</html>
